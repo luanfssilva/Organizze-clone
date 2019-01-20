@@ -1,12 +1,28 @@
 <resources>
     <string name="app_name">Organizze</string>
 
-    <string name="intro_1">Organize suas contas de onde estiver</string>>
-    <string name="intro_1a">Simples, fácil de usar e grátis</string>>
-    <string name="intro_2">Saiba para onde está indo seu dinheiro</string>>
-    <string name="intro_2a">Categorizando seus lançamentos e vendo o destino de cada centavo</string>>
-    <string name="intro_3">Nunca mais esqueça de pagar uma conta</string>>
-    <string name="intro_3a">Receba alertas quando quiser</string>>
-    <string name="intro_4">Tudo organizado no celular ou computador</string>>
-    <string name="intro_4a">Use seu smartphone  e acessando o Organizze pelo site</string>>
+    <string name="intro_1">Organize suas contas de onde estiver</string>
+    <string name="intro_1a">Simples, fácil de usar e grátis</string>
+    <string name="intro_2">Saiba para onde está indo seu dinheiro</string>
+    <string name="intro_2a">Categorizando seus lançamentos e vendo o destino de cada centavo</string>
+    <string name="intro_3">Nunca mais esqueça de pagar uma conta</string>
+    <string name="intro_3a">Receba alertas quando quiser</string>
+    <string name="intro_4">Tudo organizado no celular ou computador</string>
+    <string name="intro_4a">Use seu smartphone  e acessando o Organizze pelo site</string>
+
+    <string name="textIntroCadastro">Crie uma conta grátis</string>
+    <string name="text2IntroCadastro">Junte-se a mais de meio milhão de pessoas e comece já</string>
+    <string name="tex3IntroCadastro">Já tenho conta</string>
+
+    <string name="btnCadastrar">Cadastre-se</string>
+    <string name="btnFinalizarCadastro">Cadastrar</string>
+    <string name="btnEntrar">Entrar</string>
+
+    <string name="textTermosUso">Termos de Uso</string>
+    <string name="textNome">Nome</string>
+    <string name="textEmail">Email</string>
+    <string name="textSenha">Senha</string>
+    <string name="textEntrarConta">Acesse sua conta</string>
+
+
 </resources>
