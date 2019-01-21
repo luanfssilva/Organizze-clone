@@ -1,6 +1,5 @@
 package com.example.luan.organizze.activitys;
 
-import android.media.MediaPlayer;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -34,8 +33,8 @@ public class CadastroActivity extends AppCompatActivity {
         setContentView(R.layout.activity_cadastro);
 
         campoNome = findViewById(R.id.editNomeId);
-        campoEmail = findViewById(R.id.editEmailId);
-        campoSenha = findViewById(R.id.editSenhaId);
+        campoEmail = findViewById(R.id.editLoginEmailId);
+        campoSenha = findViewById(R.id.editLoginSenhaId);
         btnCadastrar = findViewById(R.id.btnCadastrarId);
 
         btnCadastrar.setOnClickListener(new View.OnClickListener() {

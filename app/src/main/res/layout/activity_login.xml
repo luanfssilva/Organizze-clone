@@ -21,14 +21,14 @@
         android:textColor="@android:color/black"
         android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/editEmailId"
+        app:layout_constraintBottom_toTopOf="@+id/editLoginEmailId"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_chainStyle="packed" />
 
     <EditText
-        android:id="@+id/editEmailId"
+        android:id="@+id/editLoginEmailId"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -40,13 +40,13 @@
         android:ems="10"
         android:hint="@string/textEmail"
         android:inputType="textEmailAddress"
-        app:layout_constraintBottom_toTopOf="@+id/editSenhaId"
+        app:layout_constraintBottom_toTopOf="@+id/editLoginSenhaId"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <EditText
-        android:id="@+id/editSenhaId"
+        android:id="@+id/editLoginSenhaId"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -62,7 +62,7 @@
         app:layout_constraintBottom_toTopOf="@+id/btnLoginId"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editEmailId" />
+        app:layout_constraintTop_toBottomOf="@+id/editLoginEmailId" />
 
     <Button
         android:id="@+id/btnLoginId"
@@ -79,6 +79,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editSenhaId" />
+        app:layout_constraintTop_toBottomOf="@+id/editLoginSenhaId" />
 
 </android.support.constraint.ConstraintLayout>
