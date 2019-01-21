@@ -136,6 +136,8 @@ fabric.properties
 **/node_modules/*
 **/.firebaserc
 
+app/google-services.json
+
 ### Firebase Patch ###
 .runtimeconfig.json
 .firebase/
