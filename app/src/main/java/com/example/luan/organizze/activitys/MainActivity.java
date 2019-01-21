@@ -1,4 +1,4 @@
-package com.example.luan.organizze;
+package com.example.luan.organizze.activitys;
 
 import android.content.Intent;
 import android.support.v4.app.FragmentActivity;
@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.luan.organizze.R;
 import com.example.luan.organizze.activitys.CadastroActivity;
 import com.example.luan.organizze.activitys.LoginActivity;
 import com.heinrichreimersoftware.materialintro.app.IntroActivity;
