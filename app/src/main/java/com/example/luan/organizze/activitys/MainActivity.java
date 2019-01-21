@@ -11,10 +11,14 @@ import android.widget.TextView;
 import com.example.luan.organizze.R;
 import com.example.luan.organizze.activitys.CadastroActivity;
 import com.example.luan.organizze.activitys.LoginActivity;
+import com.example.luan.organizze.config.ConfiguracaoFirebase;
+import com.google.firebase.auth.FirebaseAuth;
 import com.heinrichreimersoftware.materialintro.app.IntroActivity;
 import com.heinrichreimersoftware.materialintro.slide.FragmentSlide;
 
 public class MainActivity extends IntroActivity {
+
+    private FirebaseAuth autenticacao;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,12 +57,30 @@ public class MainActivity extends IntroActivity {
                 .build());
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        verificarUsuarioLogado();
+    }
+
     public void btnEntrar(View view){
         startActivity(new Intent(this,LoginActivity.class));
     }
 
     public void btnCadastrar(View view ){
         startActivity(new Intent(this, CadastroActivity.class));
+    }
+
+    private void verificarUsuarioLogado(){
+        autenticacao =ConfiguracaoFirebase.getFirebaseAutenticacao();
+        //Recupera se tem um usuario logado
+        if(autenticacao.getCurrentUser() != null){
+            abrirTelaPrincipal();
+        }
+    }
+
+    public void abrirTelaPrincipal(){
+        startActivity(new Intent(this, PrincipalActivity.class));
     }
 
 }

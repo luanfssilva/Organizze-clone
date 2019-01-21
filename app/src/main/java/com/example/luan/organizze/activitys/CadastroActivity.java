@@ -33,8 +33,8 @@ public class CadastroActivity extends AppCompatActivity {
         setContentView(R.layout.activity_cadastro);
 
         campoNome = findViewById(R.id.editNomeId);
-        campoEmail = findViewById(R.id.editLoginEmailId);
-        campoSenha = findViewById(R.id.editLoginSenhaId);
+        campoEmail = findViewById(R.id.editCadastroEmailId);
+        campoSenha = findViewById(R.id.editCadastroSenhaId);
         btnCadastrar = findViewById(R.id.btnCadastrarId);
 
         btnCadastrar.setOnClickListener(new View.OnClickListener() {
@@ -85,9 +85,8 @@ public class CadastroActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){ //Verifica se deu certo o cadastro
-                    Toast.makeText(CadastroActivity.this,
-                            "Usuário cadastrado com sucesso!",
-                            Toast.LENGTH_LONG).show();
+
+                    finish();
                 }
                 else{
                     //Tratamento de exception, caso o usuario faça alguma merda

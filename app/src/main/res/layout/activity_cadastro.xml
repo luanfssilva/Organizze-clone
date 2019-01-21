@@ -40,14 +40,14 @@
         android:ems="10"
         android:hint="@string/textNome"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/editLoginEmailId"
+        app:layout_constraintBottom_toTopOf="@+id/editCadastroEmailId"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <EditText
-        android:id="@+id/editLoginEmailId"
+        android:id="@+id/editCadastroEmailId"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -60,14 +60,14 @@
         android:ems="10"
         android:hint="@string/textEmail"
         android:inputType="textEmailAddress"
-        app:layout_constraintBottom_toTopOf="@+id/editLoginSenhaId"
+        app:layout_constraintBottom_toTopOf="@+id/editCadastroSenhaId"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editNomeId" />
 
     <EditText
-        android:id="@+id/editLoginSenhaId"
+        android:id="@+id/editCadastroSenhaId"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -83,7 +83,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editLoginEmailId" />
+        app:layout_constraintTop_toBottomOf="@+id/editCadastroEmailId" />
 
     <Button
         android:id="@+id/btnCadastrarId"
@@ -101,7 +101,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editLoginSenhaId" />
+        app:layout_constraintTop_toBottomOf="@+id/editCadastroSenhaId" />
 
     <TextView
         android:id="@+id/textView5"
