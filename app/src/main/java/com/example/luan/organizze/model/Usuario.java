@@ -1,12 +1,33 @@
 package com.example.luan.organizze.model;
 
+import com.example.luan.organizze.config.ConfiguracaoFirebase;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.Exclude;
+
 public class Usuario {
 
+    private String idUsuario;
     private String nome;
     private String email;
     private String senha;
 
     public Usuario() {
+    }
+
+    public void salvar(){
+       DatabaseReference firebase = ConfiguracaoFirebase.getFirebaseDataBase();
+        firebase.child("usuarios")
+                .child(this.idUsuario)
+                .setValue(this);
+    }
+
+    @Exclude //Esse dado vai ser desconsiderado na hora de salvar no Firebase
+    public String getIdUsuario() {
+        return idUsuario;
+    }
+
+    public void setIdUsuario(String idUsuario) {
+        this.idUsuario = idUsuario;
     }
 
     public String getNome() {
@@ -25,6 +46,7 @@ public class Usuario {
         this.email = email;
     }
 
+    @Exclude
     public String getSenha() {
         return senha;
     }

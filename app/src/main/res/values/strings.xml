@@ -25,10 +25,11 @@
     <string name="textSenha">Senha</string>
     <string name="textEntrarConta">Acesse sua conta</string>
     <string name="title_activity_principal">PrincipalActivity</string>
+
     <string name="reais">R$ 0.00</string>
-    <string name="exemploData">Ex: 22/01/2019</string>
-    <string name="exemploSalario">Ex: Salário</string>
-    <string name="exemploSalarioMensal">Ex: Salário Mensal</string>
+    <string name="exData">Data</string>
+    <string name="exCategoria">Categoria</string>
+    <string name="exDescricao">Descrição</string>
 
 
 </resources>

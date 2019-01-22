@@ -72,7 +72,8 @@ public class MainActivity extends IntroActivity {
     }
 
     private void verificarUsuarioLogado(){
-        autenticacao =ConfiguracaoFirebase.getFirebaseAutenticacao();
+        autenticacao = ConfiguracaoFirebase.getFirebaseAutenticacao();
+        //autenticacao.signOut(); //vai deslogar usuario
         //Recupera se tem um usuario logado
         if(autenticacao.getCurrentUser() != null){
             abrirTelaPrincipal();

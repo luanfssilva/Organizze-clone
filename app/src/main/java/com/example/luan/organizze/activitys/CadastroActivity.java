@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import com.example.luan.organizze.R;
 import com.example.luan.organizze.config.ConfiguracaoFirebase;
+import com.example.luan.organizze.helper.Base64Custom;
 import com.example.luan.organizze.model.Usuario;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -86,6 +87,9 @@ public class CadastroActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){ //Verifica se deu certo o cadastro
 
+                    String idUsuario = Base64Custom.codificarBase64( usuario.getEmail());
+                    usuario.setIdUsuario( idUsuario );
+                    usuario.salvar();
                     finish();
                 }
                 else{
