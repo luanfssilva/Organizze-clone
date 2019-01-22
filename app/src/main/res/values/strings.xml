@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Organizze</string>
 
+    <!-- Sliders -->
     <string name="intro_1">Organize suas contas de onde estiver</string>
     <string name="intro_1a">Simples, fácil de usar e grátis</string>
     <string name="intro_2">Saiba para onde está indo seu dinheiro</string>
@@ -24,6 +25,10 @@
     <string name="textSenha">Senha</string>
     <string name="textEntrarConta">Acesse sua conta</string>
     <string name="title_activity_principal">PrincipalActivity</string>
+    <string name="reais">R$ 0.00</string>
+    <string name="exemploData">Ex: 22/01/2019</string>
+    <string name="exemploSalario">Ex: Salário</string>
+    <string name="exemploSalarioMensal">Ex: Salário Mensal</string>
 
 
 </resources>

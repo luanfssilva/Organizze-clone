@@ -27,7 +27,13 @@
         <activity
             android:name=".activitys.PrincipalActivity"
             android:label="@string/title_activity_principal"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".activitys.ReceitasActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/receitaTheme"/>
+        <activity android:name=".activitys.DespesasActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/despesaTheme"></activity>
     </application>
 
 </manifest>

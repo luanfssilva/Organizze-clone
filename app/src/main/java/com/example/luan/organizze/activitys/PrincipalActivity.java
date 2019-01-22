@@ -1,5 +1,6 @@
 package com.example.luan.organizze.activitys;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -10,6 +11,8 @@ import android.widget.Toast;
 
 import com.example.luan.organizze.R;
 import com.github.clans.fab.FloatingActionMenu;
+
+import java.security.Principal;
 
 public class PrincipalActivity extends AppCompatActivity {
 
@@ -30,7 +33,7 @@ public class PrincipalActivity extends AppCompatActivity {
         fabReceita.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                startActivity(new Intent(PrincipalActivity.this, ReceitasActivity.class));
             }
         });
 
@@ -38,6 +41,7 @@ public class PrincipalActivity extends AppCompatActivity {
         fabDespesa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                startActivity(new Intent(PrincipalActivity.this, DespesasActivity.class));
 
             }
         });
