@@ -30,6 +30,7 @@
     <string name="exData">Data</string>
     <string name="exCategoria">Categoria</string>
     <string name="exDescricao">Descrição</string>
+    <string name="action_fab_done">CONFIRMAR</string>
 
 
 </resources>
