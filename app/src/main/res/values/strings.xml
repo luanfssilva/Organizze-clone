@@ -31,6 +31,9 @@
     <string name="exCategoria">Categoria</string>
     <string name="exDescricao">Descrição</string>
     <string name="action_fab_done">CONFIRMAR</string>
+    <string name="carregando">Carregando</string>
+    <string name="saldo">saldo geral</string>
+    <string name="textSair">Sair</string>
 
 
 </resources>
