@@ -1,14 +1,17 @@
 package com.example.luan.organizze.activitys;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.support.v7.widget.helper.ItemTouchHelper;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -57,6 +60,7 @@ public class PrincipalActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private AdapterMovimentacao adapterMovimentacao;
     private List<Movimentacao> movimentacoes = new ArrayList<>();
+    private Movimentacao movimentacao;
     private DatabaseReference movimentacaoRef;
     private String mesAnoSelecionado;
 
@@ -76,6 +80,7 @@ public class PrincipalActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.recyclerMovimentosId);
 
         configuraCalendarView();
+        swipe();
 
         //Configurar adapter
         adapterMovimentacao = new AdapterMovimentacao(movimentacoes, this );
@@ -104,6 +109,86 @@ public class PrincipalActivity extends AppCompatActivity {
         });
     }
 
+    public void swipe(){
+
+        ItemTouchHelper.Callback itemTouch = new ItemTouchHelper.Callback() {
+            @Override
+            public int getMovementFlags(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder) {
+                int dragFlags = ItemTouchHelper.ACTION_STATE_IDLE;
+                int swipeFlags = ItemTouchHelper.START | ItemTouchHelper.END;
+                return  makeMovementFlags(dragFlags,swipeFlags);
+            }
+
+            @Override
+            public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
+                return false;
+            }
+
+            @Override
+            public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction) {
+                excluirMovimentacao( viewHolder);
+            }
+        };
+        new ItemTouchHelper( itemTouch ).attachToRecyclerView(recyclerView);
+    }
+
+    public void excluirMovimentacao(final RecyclerView.ViewHolder viewHolder){
+
+        AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
+
+        //Configura AlertDialog
+        alertDialog.setTitle("Excluir Movimentação da Conta");
+        alertDialog.setMessage("Você tem certeza que deseja realmente excluir esse item da sua conta");
+        alertDialog.setCancelable(false);
+        alertDialog.setPositiveButton("Confirmar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                int position = viewHolder.getAdapterPosition();
+                movimentacao = movimentacoes.get(position);
+
+                String emailUsuario = autenticacao.getCurrentUser().getEmail();
+                String idUsuario = Base64Custom.codificarBase64(emailUsuario);
+                movimentacaoRef = firebaseRef.child("movimentacao")
+                        .child( idUsuario)
+                        .child(mesAnoSelecionado);
+
+                movimentacaoRef.child(movimentacao.getKey()).removeValue();
+                adapterMovimentacao.notifyItemRemoved(position);
+                atualizarSaldo();
+            }
+        });
+
+        alertDialog.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Toast.makeText(PrincipalActivity.this,
+                        "Cancelado",
+                        Toast.LENGTH_SHORT).show();
+                adapterMovimentacao.notifyDataSetChanged();
+            }
+        });
+
+        AlertDialog alert = alertDialog.create();
+        alert.show();
+    }
+
+    public void atualizarSaldo(){
+
+        String emailUsuario = autenticacao.getCurrentUser().getEmail();
+        String idUsuario = Base64Custom.codificarBase64(emailUsuario);
+        usuarioRef = firebaseRef.child("usuarios").child(idUsuario);
+
+        if(movimentacao.getTipo().equals("r")){
+            receitaTotal = receitaTotal - movimentacao.getValor();
+            usuarioRef.child("receitaTotal").setValue(receitaTotal);
+        }
+
+        if(movimentacao.getTipo().equals("d")){
+            despesaTotal = despesaTotal - movimentacao.getValor();
+            usuarioRef.child("despesaTotal").setValue(despesaTotal);
+        }
+    }
+
     public void recuperarMovimentacoes(){
 
         String emailUsuario = autenticacao.getCurrentUser().getEmail();
@@ -119,6 +204,7 @@ public class PrincipalActivity extends AppCompatActivity {
 
                 for (DataSnapshot dados: dataSnapshot.getChildren()){
                     Movimentacao movimentacao = dados.getValue( Movimentacao.class );
+                    movimentacao.setKey( dados.getKey() );
                     movimentacoes.add(movimentacao);
                 }
                 adapterMovimentacao.notifyDataSetChanged();
